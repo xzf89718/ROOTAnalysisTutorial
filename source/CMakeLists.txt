@@ -18,6 +18,7 @@ foreach( _pp ${_parentProjectNames} )
    endif()
 endforeach()
 
+#set(_defaultParentProject AnalysisBase)
 # Set the parent project name based on the previous findings:
 set( ATLAS_PROJECT ${_defaultParentProject}
    CACHE STRING "The name of the parent project to build against" )
