@@ -22,6 +22,8 @@ StatusCode MyxAODAnalysis :: initialize ()
   // beginning on each worker node, e.g. create histograms and output
   // trees.  This method gets called before any input files are
   // connected.
+
+	ANA_MSG_INFO("in initialize");
   return StatusCode::SUCCESS;
 }
 
@@ -33,6 +35,8 @@ StatusCode MyxAODAnalysis :: execute ()
   // events, e.g. read input variables, apply cuts, and fill
   // histograms and trees.  This is where most of your actual analysis
   // code will go.
+  
+	ANA_MSG_INFO("in execute");
   return StatusCode::SUCCESS;
 }
 
