@@ -49,7 +49,7 @@ StatusCode MyxAODAnalysis :: execute ()
 	const xAOD::JetContainer* jets=nullptr;
 	ANA_CHECK(evtStore()->retrieve(jets, "AntiKt4EMPFlowJets"));
 	for(const xAOD::Jet* jet: *jets){
-		hist("h_JetPt")->Fill(jet->pt()*0.001);//GeV
+		hist("h_jetPt")->Fill(jet->pt()*0.001);//GeV
 	}//end for loop over jets
 
 
