@@ -21,6 +21,14 @@ private:
   //float m_cutValue;
   //TTree *m_myTree;
   //TH1 *m_myHist;
+	
+  // Electron pT cut
+  double m_electronPtCut;
+  //Sample name
+  std::string m_sampleName;
+
+
+
 };
 
 #endif

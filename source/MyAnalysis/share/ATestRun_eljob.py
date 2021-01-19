@@ -33,7 +33,8 @@ from AnaAlgorithm.DualUseConfig import createAlgorithm
 alg = createAlgorithm ( 'MyxAODAnalysis', 'AnalysisAlg' )
 
 # later on we'll add some configuration options for our algorithm that go here
-
+alg.ElectronPtCut = 30000.0
+alg.SampleName = 'Zee'
 # Add our algorithm to the job
 job.algsAdd( alg )
 

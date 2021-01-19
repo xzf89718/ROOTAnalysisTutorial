@@ -12,6 +12,12 @@ MyxAODAnalysis :: MyxAODAnalysis (const std::string& name,
 	// declare all properties for your algorithm.  Note that things like
 	// resetting statistics variables or booking histograms should
 	// rather go into the initialize() function.
+	//
+
+	declareProperty("ElectronPtCut", m_electronPtCut=25000.0,
+			"Minimum electron pT (in MeV)");
+	declareProperty("SampleName", m_sampleName="Unknown",
+			"Descriptive name for the processed sample");
 }
 
 
@@ -22,6 +28,11 @@ StatusCode MyxAODAnalysis :: initialize ()
 	// beginning on each worker node, e.g. create histograms and output
 	// trees.  This method gets called before any input files are
 	// connected.
+	
+	// Double check Property we add
+	ANA_MSG_INFO("ElectronPtCut = "<<m_electronPtCut);
+	ANA_MSG_INFO("SampleName = "<<m_sampleName);
+
 
 	ANA_MSG_INFO("in initialize");
 	ANA_CHECK(book(TH1F("h_jetPt","h_jetPt",100,0,500)));// jet pt[GeV]
