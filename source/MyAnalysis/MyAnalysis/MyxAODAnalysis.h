@@ -2,6 +2,8 @@
 #define MyAnalysis_MyxAODAnalysis_H
 
 #include <AnaAlgorithm/AnaAlgorithm.h>
+#include<TH1.h>
+#include<xAODJet/JetContainer.h>
 
 class MyxAODAnalysis : public EL::AnaAlgorithm
 {

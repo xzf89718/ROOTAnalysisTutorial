@@ -2,7 +2,7 @@
 atlas_subdir (MyAnalysis)
 
 
-find_package(ROOT REQUIRED)
+# find_package(ROOT REQUIRED)
 # include_directories($ROOT_INCLUDE_DIRS)
 
 
@@ -10,7 +10,7 @@ find_package(ROOT REQUIRED)
 atlas_add_library (MyAnalysisLib
   MyAnalysis/*.h Root/*.cxx
   PUBLIC_HEADERS MyAnalysis
-  LINK_LIBRARIES AnaAlgorithmLib xAODEventInfo)
+  LINK_LIBRARIES AnaAlgorithmLib xAODEventInfo xAODJet)
 
 
 if (XAOD_STANDALONE)

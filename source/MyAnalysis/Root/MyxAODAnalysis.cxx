@@ -1,8 +1,8 @@
 #include <AsgTools/MessageCheck.h>
 #include <MyAnalysis/MyxAODAnalysis.h>
 #include <xAODEventInfo/EventInfo.h>
-
-
+#include <xAODJet/JetContainer.h>
+#include <TH1.h>
 MyxAODAnalysis :: MyxAODAnalysis (const std::string& name,
 		ISvcLocator *pSvcLocator)
 : EL::AnaAlgorithm (name, pSvcLocator)
@@ -24,6 +24,7 @@ StatusCode MyxAODAnalysis :: initialize ()
 	// connected.
 
 	ANA_MSG_INFO("in initialize");
+	ANA_CHECK(book(TH1F("h_jetPt","h_jetPt",100,0,500)));// jet pt[GeV]
 	return StatusCode::SUCCESS;
 }
 
@@ -44,7 +45,12 @@ StatusCode MyxAODAnalysis :: execute ()
 
 	// print outrun and event number from retrieved object
 	ANA_MSG_INFO("in execute, runNumber="<<eventInfo->runNumber()<<",eventNumber="<<eventInfo->eventNumber());
-
+	//loop over the jets in the container
+	const xAOD::JetContainer* jets=nullptr;
+	ANA_CHECK(evtStore()->retrieve(jets, "AntiKt4EMPFlowJets"));
+	for(const xAOD::Jet* jet: *jets){
+		hist("h_JetPt")->Fill(jet->pt()*0.001);//GeV
+	}//end for loop over jets
 
 
 	return StatusCode::SUCCESS;
