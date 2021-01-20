@@ -5,8 +5,8 @@
 import optparse
 parser = optparse.OptionParser()
 parser.add_option( '-s', '--submission-dir', dest = 'submission_dir',
-                   action = 'store', type = 'string', default = 'submitDir',
-                   help = 'Submission directory for EventLoop' )
+		                   action = 'store', type = 'string', default = 'submitDir',
+				                      help = 'Submission directory for EventLoop' )
 ( options, args ) = parser.parse_args()
 
 # Set up (Py)ROOT.
@@ -41,4 +41,3 @@ job.algsAdd( alg )
 # Run the job using the direct driver.
 driver = ROOT.EL.DirectDriver()
 driver.submit( job, options.submission_dir )
-
